@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md Firdaus Hussain | AI & ML Enthusiast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin: 50px;
+      padding: 40px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #00ffff, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffff; }
+      to { text-shadow: 0 0 20px #a855f7; }
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      color: #b8b8ff;
+      margin-top: 10px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin: 15px 0;
+      color: #b3e5fc;
+    }
+
+    .cta-button {
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #00ffff, #a855f7);
+      border: none;
+      border-radius: 30px;
+      color: #000;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    .background-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 255, 255, 0.1);
+      animation: move 20s linear infinite;
+    }
+
+    @keyframes move {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-50px) scale(1.3); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    /* About Section */
+    .about {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+      backdrop-filter: blur(15px);
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.2rem;
+      background: linear-gradient(90deg, #00ffff, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      color: #cfd8dc;
+      line-height: 1.8;
+    }
+    .projects {
+  max-width: 1000px;
+  margin: 100px auto;
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.projects h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 700px;
+  text-align: left;
+  color: #e0e0e0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 25px #00ffff;
+}
+
+.project-card ul {
+  list-style: none;
+  margin: 15px 0;
+  padding-left: 0;
+}
+
+.project-card ul li {
+  margin-bottom: 8px;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  color: #000;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: linear-gradient(90deg, #a855f7, #00ffff);
+  box-shadow: 0 0 15px #00ffff;
+}
+.skills {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.skills h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 50px;
+}
+
+.skill-category {
+  max-width: 450px;
+  text-align: left;
+}
+
+.skill-category h3 {
+  font-size: 1.6rem;
+  color: #cfd8dc;
+  margin-bottom: 20px;
+}
+
+.skill-bar {
+  margin-bottom: 15px;
+}
+
+.skill-bar span {
+  font-size: 1rem;
+  color: #b3e5fc;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.skill-bar .bar {
+  width: 100%;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-bar .bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  border-radius: 10px;
+  transition: width 1.5s ease;
+}
+.achievements {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.achievements h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+.achievement-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 280px;
+  text-align: left;
+  color: #e0e0e0;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 25px #a855f7;
+}
+
+.achievement-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #b3e5fc;
+}
+
+.achievement-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cfd8dc;
+}
+
+.contact {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.contact-info {
+  max-width: 400px;
+  color: #cfd8dc;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.contact-info a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #a855f7;
+}
+
+.contact-form {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  backdrop-filter: blur(10px);
+  font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #b3e5fc;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
+}
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  color: #000;
+  z-index: 1000;
+  box-shadow: 0 0 15px #00ffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #a855f7;
+}
+
+/* Light theme overrides */
+body.light {
+  background: #f5f5f5;
+  color: #0f172a;
+}
+
+body.light .hero,
+body.light .about,
+body.light .projects,
+body.light .skills,
+body.light .achievements,
+body.light .contact {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  box-shadow: 0 0 25px rgba(147,51,234,0.2);
+}
+
+body.light .hero h1,
+body.light .projects h2,
+body.light .skills h2,
+body.light .achievements h2,
+body.light .contact h2 {
+  background: linear-gradient(90deg, #9333ea, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  width: 0%;
+  z-index: 999;
+}
+
+#particles-container {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(0,255,255,0.2);
+  border-radius: 50%;
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity:0.5; }
+  50% { transform: translateY(-30px) translateX(20px); opacity:0.8; }
+  100% { transform: translateY(0) translateX(-10px); opacity:0.5; }
+}
+.hero-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: left;
+  gap: 40px;
+}
+
+.hero-photo img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  border: 3px solid rgba(168, 85, 247, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-photo img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.7);
+}
+
+
+
+
+  </style>
+  
+
+</head>
+<body>
+  <div id="particles-container">
+  <div class="particle" style="top:10%; left:20%; width: 10px; height:10px;"></div>
+  <div class="particle" style="top:50%; left:70%; width: 15px; height:15px;"></div>
+  <div class="particle" style="top:80%; left:30%; width: 8px; height:8px;"></div>
+</div>
+<div class="hero-photo">
+      <img src="firdaus.jpg" alt="Md Firdaus Hussain">
+    </div>
+
+  <div id="progress-bar"></div>
+
+  <!-- Theme Toggle Button -->
+<button id="theme-toggle">🌙</button>
+
+  <section class="hero">
+    <div class="background-animation">
+      <div class="circle" style="width: 150px; height: 150px; top: 10%; left: 20%;"></div>
+      <div class="circle" style="width: 200px; height: 200px; bottom: 15%; right: 25%;"></div>
+      <div class="circle" style="width: 100px; height: 100px; top: 60%; left: 50%;"></div>
+    </div>
+
+    <h1>Md Firdaus Hussain</h1>
+    <h2>AI & ML Enthusiast</h2>
+    <p class="tagline">I build ideas that solve real human problems 🚀</p>
+    <button class="cta-button">See My Projects</button>
+  </section>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm <strong>Md Firdaus Hussain</strong>, an <strong>AI & Machine Learning Enthusiast</strong> driven by curiosity, innovation, and the passion to create impactful technology. I love turning ideas into intelligent systems that solve real-world challenges.
+      <br><br>
+      I’m currently pursuing my B.Tech and working on projects that blend data, creativity, and artificial intelligence — from visualization dashboards to innovative startups. I believe technology should make human life easier and more meaningful.
+      <br><br>
+      Apart from tech, I enjoy public speaking, content creation, and leading initiatives that inspire others to think big and stay disciplined.
+    </p>
+  </section>
+  <!-- Projects Section -->
+<section class="projects">
+  <h2>My Projects</h2>
+  
+
+
+  <div class="project-container">
+    <div class="project-card">
+      <h3>🚀 Netflix Data Visualization Dashboard</h3>
+      <p>
+        I’ve just completed my <strong>Netflix Data Visualization Project</strong> using
+        <strong>Python, Pandas, and Matplotlib</strong>! 📊<br><br>
+        Even with a small dataset (100 records), I learned how to:
+      </p>
+      <ul>
+        <li>🧹 Clean and analyze real-world data using Pandas</li>
+        <li>🎨 Create meaningful visualizations with Matplotlib</li>
+        <li>🎬 Compare Movies vs TV Shows by release year</li>
+        <li>🌍 Explore ratings, genres, and top content-producing countries</li>
+      </ul>
+      <p>
+        This project helped me understand how data can tell powerful stories through visualization.
+      </p>
+      <a href="https://github.com/mdfirdaushussain/projects" target="_blank" class="project-link">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+<!-- Skills Section -->
+<section class="skills">
+  <h2>My Skills</h2>
+
+  <div class="skills-container">
+    <!-- Technical Skills -->
+    <div class="skill-category">
+      <h3>Technical Skills</h3>
+      <div class="skill-bar">
+        <span>Python</span>
+        <div class="bar"><div style="width: 90%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>C & C++</span>
+        <div class="bar"><div style="width: 80%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>DSA</span>
+        <div class="bar"><div style="width: 85%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>Numpy / Pandas / Matplotlib</span>
+        <div class="bar"><div style="width: 85%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>SQL</span>
+        <div class="bar"><div style="width: 75%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>AI Tools</span>
+        <div class="bar"><div style="width: 70%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="skill-category">
+      <h3>Soft Skills</h3>
+      <div class="skill-bar">
+        <span>Collaboration</span>
+        <div class="bar"><div style="width: 90%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>Problem-solving</span>
+        <div class="bar"><div style="width: 85%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>Communication</span>
+        <div class="bar"><div style="width: 80%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>Time Management</span>
+        <div class="bar"><div style="width: 85%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>Leadership</span>
+        <div class="bar"><div style="width: 75%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Achievements / Certificates Section -->
+<section class="achievements">
+  <h2>My Achievements</h2>
+
+  <div class="achievement-container">
+    <div class="achievement-card">
+      <h3>Certificate of Merit</h3>
+      <p>E-Cell IIT Bombay – Outstanding Performance in Campus Ambassador Program</p>
+    </div>
+    <div class="achievement-card">
+      <h3>Rank 56</h3>
+      <p>Top 100 Campus Ambassador Internship, IIT Bombay</p>
+    </div>
+    <div class="achievement-card">
+      <h3>NEC Basic Track</h3>
+      <p>Certificate of Participation from E-Cell IIT Bombay</p>
+    </div>
+    <div class="achievement-card">
+      <h3>HP Life Course</h3>
+      <p>Completed 'Start a Small Business' course – Entrepreneurial Thinking & Planning</p>
+    </div>
+  </div>
+</section>
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2>Contact Me</h2>
+
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <p>📧 Email: <a href="mdfirdaushusasain841@gmail.com">mdfirdaushusasain841@gmail.com</a></p>
+      <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/md-firdaus-hussain-a60b37282/" target="_blank">Md Firdaus Hussain</a></p>
+      <p>💻 GitHub: <a href="https://github.com/mdfirdaushussain" target="_blank">mdfirdaushussain</a></p>
+    </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<script>
+const toggle = document.getElementById('theme-toggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  if(document.body.classList.contains('light')){
+    toggle.textContent = '🌞';
+  } else {
+    toggle.textContent = '🌙';
+  }
+});
+</script>
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
+</script>
+
+
+
+</body>
+</html>
