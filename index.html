@@ -14,10 +14,29 @@
     }
 
     body {
-      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-      color: #e0e0e0;
-      overflow-x: hidden;
-    }
+  /* Enhanced gradient with smoother tones */
+  background: radial-gradient(circle at 20% 20%, #1b2735, #090a0f);
+  
+  /* Text and readability improvements */
+  color: #e4e6eb;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  
+  /* Smoother scrolling and full height layout */
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  
+  /* Slight fade animation for a modern touch */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Subtle fade-in effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 
     /* Hero Section */
     .hero {
@@ -414,23 +433,28 @@
   box-shadow: 0 0 25px #a855f7;
 }
 
-/* Light theme overrides */
+/* Light Theme */
 body.light {
   background: #f5f5f5;
   color: #0f172a;
+  overflow: hidden;
 }
 
+/* Sections */
 body.light .hero,
 body.light .about,
 body.light .projects,
 body.light .skills,
 body.light .achievements,
 body.light .contact {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   color: #0f172a;
-  box-shadow: 0 0 25px rgba(147,51,234,0.2);
+  box-shadow: 0 0 30px rgba(147, 51, 234, 0.25);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
 }
 
+/* Gradient text effect */
 body.light .hero h1,
 body.light .projects h2,
 body.light .skills h2,
@@ -440,6 +464,8 @@ body.light .contact h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Progress Bar */
 #progress-bar {
   position: fixed;
   top: 0;
@@ -450,28 +476,53 @@ body.light .contact h2 {
   z-index: 999;
 }
 
+/* Particle Container */
 #particles-container {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
   z-index: -2;
+  perspective: 1000px; /* for 3D depth */
 }
 
+/* Particle Style */
 .particle {
   position: absolute;
-  background: rgba(0,255,255,0.2);
+  background: rgba(0, 255, 255, 0.3);
   border-radius: 50%;
-  animation: float 10s infinite alternate ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  animation: float3D 20s infinite ease-in-out;
 }
 
-@keyframes float {
-  0% { transform: translateY(0) translateX(0); opacity:0.5; }
-  50% { transform: translateY(-30px) translateX(20px); opacity:0.8; }
-  100% { transform: translateY(0) translateX(-10px); opacity:0.5; }
+/* Floating 3D Animation */
+@keyframes float3D {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate3d(50px, -60px, 30px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(-40px, 40px, -20px) scale(1);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate3d(30px, -30px, -40px) scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.5;
+  }
 }
+
+/* Hero Section */
 .hero-content {
   display: flex;
   justify-content: space-around;
@@ -481,20 +532,79 @@ body.light .contact h2 {
   gap: 40px;
 }
 
+/* Hero Photo */
 .hero-photo img {
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-  border: 3px solid rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.5);
+  border: 3px solid rgba(168, 85, 247, 0.7);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .hero-photo img:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 50px rgba(168, 85, 247, 0.7);
+  box-shadow: 0 0 55px rgba(168, 85, 247, 0.8);
 }
+/* ✨ Section Entry Animations */
+.section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease-out;
+}
+
+/* When section becomes visible */
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Add slight delay for a smooth staggered look */
+.section:nth-child(1) { transition-delay: 0.1s; }
+.section:nth-child(2) { transition-delay: 0.2s; }
+.section:nth-child(3) { transition-delay: 0.3s; }
+.section:nth-child(4) { transition-delay: 0.4s; }
+.section:nth-child(5) { transition-delay: 0.5s; }
+.section:nth-child(6) { transition-delay: 0.6s; }
+
+/* Subtle hover lift for each section */
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(147, 51, 234, 0.2);
+}
+
+/*for bluring bubbles*/
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: moveCircle 12s infinite ease-in-out alternate;
+}
+
+/* Floating motion for circles */
+@keyframes moveCircle {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(30px, -40px) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-20px, 20px) scale(1); opacity: 0.6; }
+}
+
+/* Ensure sections are positioned relative for the circles */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
 
 
 
@@ -505,6 +615,35 @@ body.light .contact h2 {
 </head>
 <body>
   <div id="particles-container">
+  <div class="particle" style="width:8px;height:8px;top:10%;left:15%;animation-delay:0s;"></div>
+  <div class="particle" style="width:6px;height:6px;top:25%;left:45%;animation-delay:2s;"></div>
+  <div class="particle" style="width:10px;height:10px;top:60%;left:70%;animation-delay:4s;"></div>
+  <div class="particle" style="width:5px;height:5px;top:80%;left:30%;animation-delay:1s;"></div>
+  <div class="particle" style="width:7px;height:7px;top:50%;left:10%;animation-delay:3s;"></div>
+  <div class="particle" style="top:10%; left:20%; width: 10px; height:10px;"></div>
+  <div class="particle" style="top:50%; left:70%; width: 15px; height:15px;"></div>
+  <div class="particle" style="top:80%; left:30%; width: 8px; height:8px;"></div>
+  <div class="particle" style="width:8px;height:8px;top:10%;left:15%;animation-delay:0s;"></div>
+  <div class="particle" style="width:6px;height:6px;top:25%;left:45%;animation-delay:2s;"></div>
+  <div class="particle" style="width:10px;height:10px;top:60%;left:70%;animation-delay:4s;"></div>
+  <div class="particle" style="width:5px;height:5px;top:80%;left:30%;animation-delay:1s;"></div>
+  <div class="particle" style="width:7px;height:7px;top:50%;left:10%;animation-delay:3s;"></div>
+  <div class="particle" style="top:10%; left:20%; width: 10px; height:10px;"></div>
+  <div class="particle" style="top:50%; left:70%; width: 15px; height:15px;"></div>
+  <div class="particle" style="top:80%; left:30%; width: 8px; height:8px;"></div>
+  <div class="particle" style="width:8px;height:8px;top:10%;left:15%;animation-delay:0s;"></div>
+  <div class="particle" style="width:6px;height:6px;top:25%;left:45%;animation-delay:2s;"></div>
+  <div class="particle" style="width:10px;height:10px;top:60%;left:70%;animation-delay:4s;"></div>
+  <div class="particle" style="width:5px;height:5px;top:80%;left:30%;animation-delay:1s;"></div>
+  <div class="particle" style="width:7px;height:7px;top:50%;left:10%;animation-delay:3s;"></div>
+  <div class="particle" style="top:10%; left:20%; width: 10px; height:10px;"></div>
+  <div class="particle" style="top:50%; left:70%; width: 15px; height:15px;"></div>
+  <div class="particle" style="top:80%; left:30%; width: 8px; height:8px;"></div>
+  <div class="particle" style="width:8px;height:8px;top:10%;left:15%;animation-delay:0s;"></div>
+  <div class="particle" style="width:6px;height:6px;top:25%;left:45%;animation-delay:2s;"></div>
+  <div class="particle" style="width:10px;height:10px;top:60%;left:70%;animation-delay:4s;"></div>
+  <div class="particle" style="width:5px;height:5px;top:80%;left:30%;animation-delay:1s;"></div>
+  <div class="particle" style="width:7px;height:7px;top:50%;left:10%;animation-delay:3s;"></div>
   <div class="particle" style="top:10%; left:20%; width: 10px; height:10px;"></div>
   <div class="particle" style="top:50%; left:70%; width: 15px; height:15px;"></div>
   <div class="particle" style="top:80%; left:30%; width: 8px; height:8px;"></div>
@@ -518,7 +657,7 @@ body.light .contact h2 {
   <!-- Theme Toggle Button -->
 <button id="theme-toggle">🌙</button>
 
-  <section class="hero">
+  <section class="hero"id="hero">
     <div class="background-animation">
       <div class="circle" style="width: 150px; height: 150px; top: 10%; left: 20%;"></div>
       <div class="circle" style="width: 200px; height: 200px; bottom: 15%; right: 25%;"></div>
@@ -531,8 +670,12 @@ body.light .contact h2 {
     <button class="cta-button">See My Projects</button>
   </section>
 
-  <section class="about">
+  <section class="about"id="about">
     <h2>About Me</h2>
+    <div class="background-animation">
+    <div class="circle" style="width: 120px; height: 120px; top: 20%; left: 10%; background: rgba(147, 51, 234, 0.25);"></div>
+    <div class="circle" style="width: 200px; height: 200px; bottom: 25%; right: 15%; background: rgba(6, 182, 212, 0.25);"></div>
+  </div>
     <p>
       Hello! I'm <strong>Md Firdaus Hussain</strong>, an <strong>AI & Machine Learning Enthusiast</strong> driven by curiosity, innovation, and the passion to create impactful technology. I love turning ideas into intelligent systems that solve real-world challenges.
       <br><br>
@@ -542,8 +685,13 @@ body.light .contact h2 {
     </p>
   </section>
   <!-- Projects Section -->
-<section class="projects">
+<section class="projects"id="projects">
   <h2>My Projects</h2>
+  <div class="background-animation">
+      <div class="circle" style="width: 150px; height: 150px; top: 10%; left: 20%;"></div>
+      <div class="circle" style="width: 200px; height: 200px; bottom: 15%; right: 25%;"></div>
+      <div class="circle" style="width: 100px; height: 100px; top: 60%; left: 50%;"></div>
+    </div>
 
   <div class="project-container">
 
@@ -592,8 +740,12 @@ body.light .contact h2 {
 </section>
 
 <!-- Skills Section -->
-<section class="skills">
+<section class="skills"id="skills">
   <h2>My Skills</h2>
+  <div class="background-animation">
+    <div class="circle" style="width: 150px; height: 150px; top: 10%; left: 70%; background: rgba(168, 85, 247, 0.25);"></div>
+    <div class="circle" style="width: 180px; height: 180px; bottom: 15%; left: 30%; background: rgba(0, 255, 255, 0.25);"></div>
+  </div>
 
   <div class="skills-container">
     <!-- Technical Skills -->
@@ -601,7 +753,7 @@ body.light .contact h2 {
       <h3>Technical Skills</h3>
       <div class="skill-bar">
         <span>Python</span>
-        <div class="bar"><div style="width: 100%;"></div></div>
+        <div class="bar"><div style="width: 95%;"></div></div>
       </div>
       <div class="skill-bar">
         <span>C & C++</span>
@@ -652,8 +804,13 @@ body.light .contact h2 {
   </div>
 </section>
 <!-- Achievements / Certificates Section -->
-<section class="achievements">
+<section class="achievements"id="achievements">
   <h2>My Achievements & Experience</h2>
+  <div class="background-animation">
+      <div class="circle" style="width: 150px; height: 150px; top: 10%; left: 20%;"></div>
+      <div class="circle" style="width: 200px; height: 200px; bottom: 15%; right: 25%;"></div>
+      <div class="circle" style="width: 100px; height: 100px; top: 60%; left: 50%;"></div>
+    </div>
 
   <div class="achievement-container">
 
@@ -686,24 +843,29 @@ body.light .contact h2 {
 
   </div>
 </section>
+
 <!-- Contact Section -->
 <section class="contact" id="contact">
   <h2>Contact Me</h2>
+  <div class="background-animation">
+      <div class="circle" style="width: 150px; height: 150px; top: 30%; left: 10%;"></div>
+      <div class="circle" style="width: 200px; height: 200px; bottom: 10%; right: 25%;"></div>
+      <div class="circle" style="width: 100px; height: 100px; top: 80%; left: 50%;"></div>
+    </div>
 
   <div class="contact-container">
     <!-- Contact Info -->
     <div class="contact-info">
-      <p>📞 Call: <a href="+91 8809103597">+91 8809103597</a></p> 
       <p>📧 Email: <a href="mdfirdaushusasain841@gmail.com">mdfirdaushusasain841@gmail.com</a></p>
       <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/md-firdaus-hussain-a60b37282/" target="_blank">Md Firdaus Hussain</a></p>
       <p>💻 GitHub: <a href="https://github.com/mdfirdaushussain" target="_blank">mdfirdaushussain</a></p>
     </div>
 
-    <!-- Working Contact Form -->
-    <form class="contact-form" action="https://formspree.io/f/mdkwraed" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <!-- Contact Form -->
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </div>
@@ -728,12 +890,23 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress-bar').style.width = scrollPercent + '%';
 });
 </script>
+<script>
+  // Detect when section enters the viewport
+  const sections = document.querySelectorAll('.section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
 
 
 
 </body>
 </html>
-
-
-
-
